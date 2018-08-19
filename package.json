@@ -1,0 +1,38 @@
+{
+  "name": "bmkeros-bot",
+  "version": "1.0.0",
+  "description": "Bot BMKeros",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist/ && babel src --out-dir dist",
+    "start": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hostelix/bmkeros-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram-bot"
+  ],
+  "author": "Israel Lugo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hostelix/bmkeros-bot/issues"
+  },
+  "homepage": "https://github.com/hostelix/bmkeros-bot#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "lowdb": "^1.0.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "sequelize": "^4.38.0",
+    "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

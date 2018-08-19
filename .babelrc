@@ -1,15 +1,21 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "node": "current"
+    "presets": [
+        [
+            "env",
+        {
+            "targets": {
+                "node": "current"
+            }
         }
-      }
-    ]
-  ],
-  "plugins": [
-    "transform-object-rest-spread"
-  ]
+        ]
+    ],
+    "plugins": [
+        "transform-object-rest-spread",
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "@": "./src",
+            }
+        }]
+    ],
 }
