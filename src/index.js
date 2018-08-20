@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import TelegramBot from 'node-telegram-bot-api';
-import { processInlineQuery, processMessage } from 'bot/actions';
+import { processInlineQuery, processMessage } from 'bot/core';
 
 // Init config .env
 dotenv.config();
