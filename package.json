@@ -24,10 +24,10 @@
   "homepage": "https://github.com/hostelix/bmkeros-bot#readme",
   "dependencies": {
     "dotenv": "^6.0.0",
-    "lowdb": "^1.0.0",
     "node-telegram-bot-api": "^0.30.0",
     "sequelize": "^4.38.0",
-    "sqlite3": "^4.0.2"
+    "sqlite3": "^4.0.2",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
