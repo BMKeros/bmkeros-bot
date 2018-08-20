@@ -8,4 +8,6 @@ dotenv.config();
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 
 bot.on('message', processMessage);
-bot.on('inline_query', processInlineQuery);
+bot.on('inline_query', processInlineQuery(bot));
+bot.on('polling_error', console.log);
+bot.on('webhook_error', console.log);
