@@ -12,9 +12,13 @@ const sequelize = new Sequelize('', null, null, {
     dialect: 'sqlite',
     storage: path.resolve(basePath, process.env.DB_PATH)
 });
+
+const excludeFiles = ['index.js', 'base.js'];
+
 // Load each model file
 const models = Object.assign({}, ...fs.readdirSync(__dirname)
-    .filter(file => (file.indexOf(".") !== 0) && (file !== "index.js"))
+    .filter(file => (file.indexOf(".") !== 0))
+    .filter(file => !excludeFiles.includes(file))
     .map(function (file) {
         if (file) {
             const model = require(path.join(__dirname, file));
