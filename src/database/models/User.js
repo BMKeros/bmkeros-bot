@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
+import BaseModel from './base';
 
-class User extends Sequelize.Model {
+class User extends BaseModel {
     static init(sequelize) {
         return super.init({
             chat_id: {
