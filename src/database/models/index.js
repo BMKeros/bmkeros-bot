@@ -2,14 +2,15 @@ import fs from "fs";
 import path from "path";
 import Sequelize from "sequelize";
 import dotenv from 'dotenv';
+import { basePath } from '../../../config/project';
 
 dotenv.config();
 //const env = process.env.NODE_ENV || "development"; // use process environment
 //const config = require(path.join(__dirname, '..', 'config.js'))[env] // Use the .config.json file in the parent folder
 
-const sequelize = new Sequelize(process.env.DB_NAME, null, null, {
+const sequelize = new Sequelize('', null, null, {
     dialect: 'sqlite',
-    storage: path.resolve(__dirname, process.env.DB_PATH)
+    storage: path.resolve(basePath, process.env.DB_PATH)
 });
 // Load each model file
 const models = Object.assign({}, ...fs.readdirSync(__dirname)
