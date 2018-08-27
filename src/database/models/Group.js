@@ -7,18 +7,19 @@ class Group extends BaseModel {
     static init(sequelize) {
         return super.init({
             name: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
             },
         }
         ,{
             tableName: 'groups',
-            sequelize
+            sequelize,
         });
     }
 
     static associate(models) {
-        this.belongsToMany(models.User, { through: { model: GroupUser, unique: false} });
+        this.belongsToMany(models.User, { as: 'Members', through: { model: GroupUser, unique: false} });
     }
 }
 
-export {Group};
+export { Group };
+
