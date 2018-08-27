@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import BaseModel from './base';
+import {Group} from "./Group";
 
 class User extends BaseModel {
     static init(sequelize) {
@@ -23,7 +24,10 @@ class User extends BaseModel {
     };
 
     static associate(models) {
+        //this.belongsToMany(models.Group, {through: 'user_groups'});
     }
 }
+
+//User.belongsToMany(Group);
 
 export { User };
