@@ -1,11 +1,10 @@
 import { User } from '../../database/models';
-import { Group } from "../../database/models";
+import { Group } from '../../database/models';
 
 const processStart = (bot) => {
     return async (message) => {
-        //console.log("processStart", message);
-        let chatId = message.chat.id;
-
+        
+        const chatId = message.chat.id;
         const exists = await User.exists({ chat_id: chatId.toString() });
 
         if (!exists) {
@@ -15,19 +14,16 @@ const processStart = (bot) => {
                 last_name: message.chat.last_name,
                 username: message.chat.username,
             });
+            
+            console.log("Respuesta de usuarios", newUser);
 
-            currentUser = newUser.id;
-            console.log("Respuesta de usuarios", currentUser);
-
-            const newGroup = await Group.create({name: "MyGroup"});
+            const newGroup = await Group.create({name: `My Group ${ newUser.username }`});
 
             newGroup.addMember(newUser);
-            await bot.sendMessage(
-                chatId,
-                "Bienvenido! Hemos almacenado algunos datos de ti, para que puedas hacer uso del bot inline en cualquier lugar de telegram"
-            )
+            
+            await bot.sendMessage(chatId, 'Bienvenido! Hemos almacenado algunos datos de ti, para que puedas hacer uso del bot inline en cualquier lugar de telegram.')
         } else {
-            await bot.sendMessage(chatId, "Bienvenido de vuelta, nos alegra tenerte por aqui nuevamente.")
+            await bot.sendMessage(chatId, 'Bienvenido de vuelta, nos alegra tenerte por aqui nuevamente.')
         }
     };
 };
