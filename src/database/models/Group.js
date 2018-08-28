@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
 import BaseModel from './base';
-import { User } from './User';
 import { GroupUser } from './GroupUser';
 
 class Group extends BaseModel {

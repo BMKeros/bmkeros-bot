@@ -5,8 +5,6 @@ import dotenv from 'dotenv';
 import { basePath } from '../../../config/project';
 
 dotenv.config();
-//const env = process.env.NODE_ENV || "development"; // use process environment
-//const config = require(path.join(__dirname, '..', 'config.js'))[env] // Use the .config.json file in the parent folder
 
 const sequelize = new Sequelize('', null, null, {
     dialect: 'sqlite',
