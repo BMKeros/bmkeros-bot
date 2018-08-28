@@ -11,6 +11,7 @@ class GroupUser extends BaseModel {
             },
             user_id: {
                 type: Sequelize.INTEGER,
+
             },
             group_id: {
                 type: Sequelize.INTEGER,
