@@ -11,7 +11,7 @@ const sequelize = new Sequelize('', null, null, {
     storage: path.resolve(basePath, process.env.DB_PATH)
 });
 
-const excludeFiles = ['index.js', 'base.js', 'Permission.js'];
+const excludeFiles = ['index.js', 'base.js'];
 
 // Load each model file
 const models = Object.assign({}, ...fs.readdirSync(__dirname)

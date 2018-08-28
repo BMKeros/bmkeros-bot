@@ -5,7 +5,6 @@ const processStart = (bot) => {
     return async (message) => {
         //console.log("processStart", message);
         let chatId = message.chat.id;
-        let currentUser = 0;
 
         const exists = await User.exists({ chat_id: chatId.toString() });
 
@@ -28,7 +27,7 @@ const processStart = (bot) => {
                 "Bienvenido! Hemos almacenado algunos datos de ti, para que puedas hacer uso del bot inline en cualquier lugar de telegram"
             )
         } else {
-            bot.sendMessage(chatId, "Bienvenido de vuelta, nos alegra tenerte por aqui nuevamente.")
+            await bot.sendMessage(chatId, "Bienvenido de vuelta, nos alegra tenerte por aqui nuevamente.")
         }
     };
 };
