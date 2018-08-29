@@ -3,7 +3,6 @@ import { Group } from "../../database/models";
 
 const processStart = (bot) => {
     return async (message) => {
-        //console.log("processStart", message);
         let chatId = message.chat.id;
 
         const exists = await User.exists({ chat_id: chatId.toString() });
@@ -15,9 +14,6 @@ const processStart = (bot) => {
                 last_name: message.chat.last_name,
                 username: message.chat.username,
             });
-
-            currentUser = newUser.id;
-            console.log("Respuesta de usuarios", currentUser);
 
             const newGroup = await Group.create({name: "MyGroup"});
 
