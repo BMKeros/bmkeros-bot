@@ -5,8 +5,13 @@ import { GroupUser } from './GroupUser';
 class User extends BaseModel {
     static init(sequelize) {
         return super.init({
+            id : {
+                type: Sequelize.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
             chat_id: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
                 unique: true,
             },
             first_name: {
@@ -27,6 +32,10 @@ class User extends BaseModel {
 
     static associate(models) {
         this.belongsToMany(models.Group, { as: 'Groups', through: { model: GroupUser, unique: false }, foreignKey: 'user_id', otherKey: 'group_id'});
+    }
+
+    get myGroups() {
+        return this.getGroups();
     }
 }
 

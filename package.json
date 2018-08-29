@@ -1,42 +1,52 @@
 {
-  "name": "bmkeros-bot",
-  "version": "1.0.0",
-  "description": "Bot BMKeros",
-  "main": "index.js",
-  "scripts": {
-    "build": "rm -rf dist/ && babel src --out-dir dist",
-    "db:sync": "node dist/database/sync.js",
-    "start": "npm run build && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hostelix/bmkeros-bot.git"
-  },
-  "keywords": [
-    "bot",
-    "telegram-bot"
-  ],
-  "author": "Israel Lugo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hostelix/bmkeros-bot/issues"
-  },
-  "homepage": "https://github.com/hostelix/bmkeros-bot#readme",
-  "dependencies": {
-    "bluebird": "^3.5.1",
-    "dotenv": "^6.0.0",
-    "node-telegram-bot-api": "^0.30.0",
-    "sequelize": "^4.38.0",
-    "sqlite3": "^4.0.2",
-    "winston": "^3.0.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-module-resolver": "^3.1.1",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-node6": "^11.0.0"
-  }
+    "name": "bmkeros-bot",
+    "version": "1.0.0",
+    "description": "Bot BMKeros",
+    "main": "index.js",
+    "scripts": {
+        "build": "rm -rf dist/ && babel src --out-dir dist",
+        "db:sync": "node dist/database/sync.js",
+        "start": "npm run build && node dist/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hostelix/bmkeros-bot.git"
+    },
+    "keywords": [
+        "bot",
+        "telegram-bot"
+    ],
+    "author": "Israel Lugo (BMKeros)",
+    "contributors": [
+        {
+            "name": "Israel Lugo (BMKeros)",
+            "email": "hostelixisrael@gmail.com"
+        },
+        {
+            "name": "Antony Carryzo (BMKeros)",
+            "email": "antonycarrizo96@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hostelix/bmkeros-bot/issues"
+    },
+    "homepage": "https://github.com/hostelix/bmkeros-bot#readme",
+    "dependencies": {
+        "bluebird": "^3.5.1",
+        "dotenv": "^6.0.0",
+        "node-telegram-bot-api": "^0.30.0",
+        "sequelize": "^4.38.0",
+        "sqlite3": "^4.0.2",
+        "winston": "^3.0.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-module-resolver": "^3.1.1",
+        "babel-plugin-syntax-dynamic-import": "^6.18.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-node6": "^11.0.0"
+    }
 }
