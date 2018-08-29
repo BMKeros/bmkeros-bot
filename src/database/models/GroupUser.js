@@ -1,5 +1,7 @@
 import Sequelize from 'sequelize';
 import BaseModel from './base';
+import { User } from './User';
+import { Group } from './Group';
 
 class GroupUser extends BaseModel {
     static init(sequelize) {
@@ -11,10 +13,19 @@ class GroupUser extends BaseModel {
             },
             user_id: {
                 type: Sequelize.INTEGER,
-
+                references: {
+                    model: User,
+                    key: 'id',
+                    deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+                }
             },
             group_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: Group,
+                    key: 'id',
+                    deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+                }
             }
         },{
             tableName: 'group_users',
