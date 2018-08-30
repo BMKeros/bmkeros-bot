@@ -34,7 +34,6 @@
     },
     "homepage": "https://github.com/hostelix/bmkeros-bot#readme",
     "dependencies": {
-        "bluebird": "^3.5.1",
         "dotenv": "^6.0.0",
         "node-telegram-bot-api": "^0.30.0",
         "sequelize": "^4.38.0",
