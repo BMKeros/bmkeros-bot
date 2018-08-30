@@ -1,5 +1,4 @@
-import { User } from 'database/models';
-import { Group } from 'database/models';
+import { User, Group } from 'database/models';
 
 const processStart = (bot) => {
     return async (message) => {
