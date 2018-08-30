@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hostelix/bmkeros-bot.git"
+        "url": "git+https://github.com/bmkeros/bmkeros-bot.git"
     },
     "keywords": [
         "bot",
@@ -24,17 +24,16 @@
             "email": "hostelixisrael@gmail.com"
         },
         {
-            "name": "Antony Carryzo (BMKeros)",
+            "name": "Antony Carrizo (BMKeros)",
             "email": "antonycarrizo96@gmail.com"
         }
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/hostelix/bmkeros-bot/issues"
+        "url": "https://github.com/bmkeros/bmkeros-bot/issues"
     },
-    "homepage": "https://github.com/hostelix/bmkeros-bot#readme",
+    "homepage": "https://github.com/bmkeros/bmkeros-bot#readme",
     "dependencies": {
-        "bluebird": "^3.5.1",
         "dotenv": "^6.0.0",
         "node-telegram-bot-api": "^0.30.0",
         "sequelize": "^4.38.0",
