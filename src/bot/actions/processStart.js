@@ -1,9 +1,7 @@
-import { User } from 'database/models';
-import { Group } from 'database/models';
+import { User, Group } from 'database/models';
 
 const processStart = (bot) => {
     return async (message) => {
-
         const { id: chat_id, username, first_name, last_name }  = message.chat;
         const exists = await User.exists({ chat_id });
 
@@ -11,7 +9,7 @@ const processStart = (bot) => {
             const newUser = await User.create({ chat_id, username, first_name, last_name });
 
             const newGroup = await Group.create({
-                name: `My Personal Group [${ newUser.username }]`,
+                name: 'My Personal Group',
                 owner_id: newUser.id,
             });
 
