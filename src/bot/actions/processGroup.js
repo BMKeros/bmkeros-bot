@@ -5,7 +5,6 @@ const sequence_newgroup = ['init', 'write_name', 'add_members'];
 const manageMyGroups = async (bot, user, chat_id) => {
     const groups = await user.getMyGroups({ attributes: ['id', 'name'] });
     const buttons = groups.map(g => {
-        const data = JSON.stringify({namespace:'group',action:'open_group',data: g.name});
         const x = { text: g.name, callback_data: `group@open_group:${g.id}`};
         return x;
     })
