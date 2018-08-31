@@ -33,7 +33,8 @@ class User extends BaseModel {
     static associate(models) {
         this.belongsToMany(models.Group, { as: 'Groups', through: { model: GroupUser, unique: false }, foreignKey: 'user_id', otherKey: 'group_id'});
 
-        this.hasMany(models.Group, { as: 'MyGroups', foreignKey: 'owner_id'});
+        this.hasMany(models.Group, { as: 'MyGroups', foreignKey: 'owner_id' });
+        this.hasOne(models.User, { as: 'Session', foreignKey: 'user_id' });
     }
 }
 
