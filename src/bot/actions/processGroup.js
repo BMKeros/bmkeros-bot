@@ -5,11 +5,10 @@ const sequence_newgroup = ['init', 'write_name', 'add_members'];
 const manageMyGroups = async (bot, user, chat_id) => {
     const groups = await user.getMyGroups({ attributes: ['id', 'name'] });
     const buttons = groups.map(g => {
-        const x = { text: g.name, callback_data: `group@open_group:${g.id}`};
-        return x;
-    })
+        return { text: g.name, callback_data: `group@open_group:${g.id}`};
+    });
 
-    bot.sendMessage(chat_id, "Choose a group!", {
+    bot.sendMessage(chat_id, 'Choose a group!', {
         reply_markup: JSON.stringify({
             inline_keyboard: [buttons],
         }),
@@ -21,29 +20,19 @@ const manageGroups = async (bot, user, chat_id) => {
     const buttons = groups.map(g => ({ text: g.name, callback_data: '/groups' }))
 
     if(groups.length > 0) {
-        bot.sendMessage(chat_id, "Choose a group!", {
+        bot.sendMessage(chat_id, 'Choose a group!', {
             reply_markup: JSON.stringify({
                 inline_keyboard: [buttons],
             }),
         });
     } else {
-        bot.sendMessage(chat_id, "You are not a member of any group");
+        bot.sendMessage(chat_id, 'You are not a member of any group');
     }
 
 };
 
 const manageNewGroup = async (bot, user, chat_id) => {
-/*    const current_step = db[chat_id];
-
-    if(current_step){
-        if(current_step === 'write_name'){
-            Group.create({ name:
-        }
-    }
-    else {
-        current_step = 'init';
-    }
-*/
+    bot.sendMessage(chat_id, 'Write the group\'s name');
 };
 
 const getAction = (command) => {
