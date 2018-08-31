@@ -1,4 +1,4 @@
-import { User, Group } from 'database/models';
+import { User, Group, Session } from 'database/models';
 const db = {};
 const sequence_newgroup = ['init', 'write_name', 'add_members'];
 
@@ -32,7 +32,17 @@ const manageGroups = async (bot, user, chat_id) => {
 };
 
 const manageNewGroup = async (bot, user, chat_id) => {
+    const [session]  = await Session.findOrCreate({
+        where: { user_id: user.id },
+    });
+    let data = {
+        command: 'new_group',
+        user_id: user.id,
+    };
+    console.log(session);
+    await session.update({ data: JSON.stringify(data), user_id: user.id });
     bot.sendMessage(chat_id, 'Write the group\'s name');
+
 };
 
 const getAction = (command) => {
