@@ -9,7 +9,7 @@ const getHandleByNamespace = (namespace) => {
 		'group': (args) => {
 
 			const { action, bot, message, params } = { ...args };
-			
+
 			const handle = getHandleByAction(action);
 
 			handle(bot, message, params);
@@ -70,7 +70,7 @@ const getHandleByAction = (action) => {
 
             const keyboard = members.map(member => {
                return {
-               	text: `@${member.username}`, 
+               	text: `@${member.username}`,
                	callback_data: `group@show_member:${member.id}`
                };
             });
@@ -80,7 +80,7 @@ const getHandleByAction = (action) => {
             	callback_data: 'group@back:1',
             });
 
-            const msg = '<strong>There are no members in this group</strong>'
+            let msg = '<strong>There are no members in this group</strong>';
 
             if(members.length > 0){
             	msg = `Members group: ${message.data}`;
@@ -99,12 +99,12 @@ const getHandleByAction = (action) => {
             const  user = await User.findById(data);
 
             const keyboard = [
-                { 
+                {
                 	text: '\uD83D\uDEAB Kick',
-                	callback_data: `group@kick_member:${ user.id }` 
+                	callback_data: `group@kick_member:${ user.id }`
                 },
-                { 
-                	text: '\uD83D\uDCDD Edit permission', 
+                {
+                	text: '\uD83D\uDCDD Edit permission',
                 	callback_data: `group@edit_permission_member:${ user.id }`
                 },
             ];
