@@ -36,6 +36,11 @@ class User extends BaseModel {
         this.hasMany(models.Group, { as: 'MyGroups', foreignKey: 'owner_id' });
         this.hasOne(models.User, { as: 'Session', foreignKey: 'user_id' });
     }
+
+    static findByChatId(chat_id) {
+        return this.findOne({ where: { chat_id }});
+    }
+
 }
 
 export { User };
