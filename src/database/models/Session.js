@@ -6,6 +6,13 @@ class Session extends BaseModel {
         return super.init({
             data: {
                 type: Sequelize.STRING,
+                get() {
+                    try {
+                        return JSON.parse(this.getDataValue('data'));
+                    } catch(e) {
+                        return null;
+                    }
+                },
                 set(val) {
                     switch(typeof val){
                         case 'object':
@@ -25,7 +32,7 @@ class Session extends BaseModel {
             },
         }, {
             tableName: 'sessions',
-            sequelize
+            sequelize,
         })
     };
 
