@@ -1,5 +1,5 @@
-import { arrayChunk } from '../../utils/utils';
-import { User, Group } from '../../database/models';
+import { arrayChunk } from 'utils/utils';
+import { User, Group, Session } from 'database/models';
 
 const regexCallbackQuery = /^(\w+[a-zA-Z0-9])\@(\w+[a-zA-Z0-9])\:(\w+[a-zA-Z0-9]|\d)$/;
 
@@ -37,11 +37,11 @@ const getHandleByAction = (action) => {
                 },
                 {
                     text: '\uD83D\uDC65 Members',
-                    callback_data: 'group@show_members:1',
+                    callback_data: `group@show_members:${ group.id }`,
                 },
                 {
                     text: '\uD83D\uDD19 Back',
-                    callback_data: 'group@back:1',
+                    callback_data: `group@back:${ group.id }`,
                 },
             ];
 
@@ -58,6 +58,17 @@ const getHandleByAction = (action) => {
         },
         'edit_name': async (bot, message, data) => {
         	const { chat } = message.message;
+
+            const user = await User.findByChatId(chat.id);
+            const session = await Session.find({ where: { user_id: user.id }});
+
+            const dat = {
+                command: 'edit_name',
+                data
+            };
+
+            await session.update({ data: dat });
+
         	bot.sendMessage(chat.id, 'Write the new group name');
         },
         'add_member': async (bot, message, data) => {

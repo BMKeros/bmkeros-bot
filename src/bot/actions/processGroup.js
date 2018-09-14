@@ -39,13 +39,13 @@ const manageNewGroup = async (bot, user, chat_id) => {
         command: 'new_group',
         user_id: user.id,
     };
-    console.log(session);
-    await session.update({ data: JSON.stringify(data), user_id: user.id });
-    bot.sendMessage(chat_id, 'Write the group\'s name');
 
+    await session.update({ data, user_id: user.id });
+
+    bot.sendMessage(chat_id, 'Write the group\'s name');
 };
 
-const getAction = (command) => {
+const getHandle = (command) => {
     const actions = {
         '/newgroup': manageNewGroup,
         '/groups': manageGroups,
@@ -63,9 +63,9 @@ const processGroup = (bot) => {
         const from_id = message.from.id;
         const user = await User.findOne({ where: { chat_id: from_id }});
 
-        const action = getAction(message.text);
+        const handle = getHandle(message.text);
 
-        action(bot, user, chat_id);
+        handle(bot, user, chat_id);
     };
 };
 
