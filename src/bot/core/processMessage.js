@@ -32,7 +32,7 @@ const getAction = (command) => {
 
 const processMessage = (bot) => {
     return async (message) => {
-        const user = await User.findByChatId({ where: { username: message.from.username} });
+        const user = await User.findByChatId(message.from.id);
         const session = await Session.find({ where: { user_id: user.id } });
         const data = session.data;
 
