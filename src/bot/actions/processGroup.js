@@ -1,6 +1,4 @@
 import { User, Group, Session } from 'database/models';
-const db = {};
-const sequence_newgroup = ['init', 'write_name', 'add_members'];
 
 const manageMyGroups = async (bot, user, chat_id) => {
     const groups = await user.getMyGroups({ attributes: ['id', 'name'] });

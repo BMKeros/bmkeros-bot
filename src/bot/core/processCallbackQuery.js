@@ -73,6 +73,19 @@ const getHandleByAction = (action) => {
         },
         'add_member': async (bot, message, data) => {
         	const { chat } = message.message;
+
+            const user = await User.findByChatId(chat.id);
+            const session = await Session.find({ where: { user_id: user.id }});
+
+            const ndata = {
+                command: 'add_member',
+                data: {
+                    group_id: data,
+                }
+            };
+
+            await session.update({ data: ndata });
+
         	bot.sendMessage(chat.id, 'Write the username of the contact that will be added to the group');
         },
         'show_members': async (bot, message, data) => {
