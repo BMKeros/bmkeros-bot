@@ -6,13 +6,33 @@ class Session extends BaseModel {
         return super.init({
             data: {
                 type: Sequelize.STRING,
+                get() {
+                    try {
+                        return JSON.parse(this.getDataValue('data'));
+                    } catch(e) {
+                        return null;
+                    }
+                },
+                set(val) {
+                    switch(typeof val){
+                        case 'object':
+                            this.setDataValue('data', JSON.stringify(val));
+                            break;
+                        case 'string':
+                            this.setDataValue('data', val);
+                            break;
+                        default:
+                            this.setDataValue('data', val);
+                            break;
+                    }
+                },
             },
             user_id: {
                 type: Sequelize.INTEGER,
             },
         }, {
             tableName: 'sessions',
-            sequelize
+            sequelize,
         })
     };
 
